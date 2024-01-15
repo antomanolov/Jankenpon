@@ -1,0 +1,1 @@
+const rock = rock
