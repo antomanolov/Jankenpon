@@ -1,4 +1,4 @@
-function gamePlay(playerSelection, computerSelection){
+/*function gamePlay(playerSelection, computerSelection){
     if (playerSelection > computerSelection){
         return "Player wins";
     } else if (computerSelection > playerSelection){
@@ -7,7 +7,7 @@ function gamePlay(playerSelection, computerSelection){
         return "It's a Tie";
     }
         
-}
+}*/
 
 /*Leet Code version
 function getComputerChoice(){
@@ -24,7 +24,7 @@ function getComputerChoice(){
 let computerSelection = getComputerChoice();
 console.log("Computer choice: ",computerSelection);*/
 
-function getComputerChoice(){
+/*function getComputerChoice(){
     let choice = Math.random() * 3;
 if (choice <= 1) {
     choice = "Rock";
@@ -35,5 +35,7 @@ if (choice <= 1) {
 }
 return choice;// if your forget the return function it returns undefined as error
 }
-let computerSelection = getComputerChoice();
-console.log("Computer choice: ", computerSelection);
+let computerSelection = getComputerChoice();*/
+
+
+/*document.getElementById("Rock").addEventListener("click",function())*/
