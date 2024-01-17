@@ -44,6 +44,36 @@ let computerSelection = getComputerChoice();*/
 //let computerMove = ''; (Using return value is better as we use scope) declaring a Global Variable, so it can be used in all functions.
 //Return = gets a value out of a function
 //Parameter of a function = puts a value into a function- works same way as a variable- it can store value
+// ------------------------------------------------------
+// that is not a good practice
+
+// document.getElementById('Rock').onclick = function () {
+//     playGame('Rock');
+// }
+
+// document.getElementById('Paper').onclick = function() {
+//     playGame('Paper');
+// }
+
+// document.getElementById('Scissors').onclick = function() {
+//        playGame('Scissors');
+//     }
+
+
+const buttonRock = document.getElementById('Rock');
+const buttonPaper = document.getElementById('Paper')
+const buttonScissors = document.getElementById('Scissors')
+
+
+buttonRock.addEventListener('click', () => {
+    playGame('Rock')
+})
+buttonPaper.addEventListener('click', () => {
+    playGame('Paper')
+})
+buttonScissors.addEventListener('click', () => {
+    playGame('Scissors')
+})
 
 function pickComputerMove(){
         const randomNumber = Math.random();
@@ -104,16 +134,3 @@ function playGame(playerMove){
         alert(`You picked ${playerMove}. Computer picked ${computerMove}.${result}`);
 
 }
-
-document.getElementById('Rock').onclick = function() {
-    playGame('Rock');
-}
-
-document.getElementById('Paper').onclick = function() {
-    playGame('Paper');
-}
-
-document.getElementById('Scissors').onclick = function() {
-       playGame('Scissors');
-    }
-    
