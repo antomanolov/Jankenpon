@@ -42,7 +42,8 @@ let computerSelection = getComputerChoice();*/
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 //let computerMove = ''; (Using return value is better as we use scope) declaring a Global Variable, so it can be used in all functions.
-
+//Return = gets a value out of a function
+//Parameter of a function = puts a value into a function- works same way as a variable- it can store value
 
 function pickComputerMove(){
         const randomNumber = Math.random();
@@ -64,58 +65,55 @@ function pickComputerMove(){
         Best Practice: Keep Variables inside a scope (if you can)*/
 }
 
-
-
-
-
-document.getElementById('Rock').onclick = function() {
-
+function playGame(playerMove){
     const computerMove = pickComputerMove();
-
-    let result = '';
-
-    if (computerMove === 'Rock'){
-        result = 'Tie.';
-    } else if (computerMove === 'Paper'){
-        result = 'You lose.';
-    } else if (computerMove === 'Scissors'){
-       result = 'You win.'; 
-    }
-
-     alert(`You picked rock. Computer picked ${computerMove}.${result}`);
-}
-
-document.getElementById('Paper').onclick = function() {
-    
-    const computerMove = pickComputerMove();
-
-    let result = '';
-
-    if (computerMove === 'Rock'){
-        result = 'You win.';
-    } else if (computerMove === 'Paper'){
-        result = 'Tie.';
-    } else if (computerMove === 'Scissors'){
-    result = 'You lose.'; 
-    }
-
-    alert(`You picked paper. Computer picked ${computerMove}.${result}`); 
-}
-
-document.getElementById('Scissors').onclick = function() {
-       
-        const computerMove = pickComputerMove();
 
         let result = '';
 
-        if (computerMove === 'Rock'){
-            result = 'You lose.';
-        } else if (computerMove === 'Paper'){
-            result = 'You win.';
-        } else if (computerMove === 'Scissors'){
-        result = 'Tie.'; 
-        }
+        if (playerMove === 'Rock'){
+            if (computerMove === 'Rock'){
+                result = 'Tie.';
+            } else if (computerMove === 'Paper'){
+                result = 'You lose.';
+            } else if (computerMove === 'Scissors'){
+            result = 'You win.'; 
+            }
 
-        alert(`You picked scrissors. Computer picked ${computerMove}.${result}`);
+        } else if (playerMove === 'Paper'){
+            if (computerMove === 'Rock'){
+                result = 'You win.';
+            } else if (computerMove === 'Paper'){
+                result = 'Tie.';
+            } else if (computerMove === 'Scissors'){
+            result = 'You lose.'; 
+            }
+
+        } else if(playerMove === 'Scissors'){
+            if (computerMove === 'Rock'){
+                result = 'You lose.';
+            } else if (computerMove === 'Paper'){
+                result = 'You win.';
+            } else if (computerMove === 'Scissors'){
+            result = 'Tie.'; 
+            }
+        }
+        //Reusing the function to call inside a functions.
+
+
+
+        alert(`You picked ${playerMove}. Computer picked ${computerMove}.${result}`);
+
+}
+
+document.getElementById('Rock').onclick = function() {
+    playGame('Rock');
+}
+
+document.getElementById('Paper').onclick = function() {
+    playGame('Paper');
+}
+
+document.getElementById('Scissors').onclick = function() {
+       playGame('Scissors');
     }
     
