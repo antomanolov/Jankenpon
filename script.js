@@ -39,21 +39,38 @@ let computerSelection = getComputerChoice();*/
 
 
 /*document.getElementById("Rock").addEventListener("click",function())*/
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+//let computerMove = ''; (Using return value is better as we use scope) declaring a Global Variable, so it can be used in all functions.
+
+
+function pickComputerMove(){
+        const randomNumber = Math.random();
+
+        let computerMove = '';
+        
+        if (randomNumber >= 0 && randomNumber
+        < 1 / 3) {
+            computerMove ='Rock';
+        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3){
+            computerMove = 'Paper';
+        } else if (randomNumber >= 2 /3 && randomNumber < 1){
+            computerMove = 'Scissors';
+        }
+    
+        return computerMove;
+        /* Using a return value is preffered to using a global variable, 
+        as the scope will prevent us naming conflicts
+        Best Practice: Keep Variables inside a scope (if you can)*/
+}
+
+
+
+
 
 document.getElementById('Rock').onclick = function() {
 
-const randomNumber = Math.random();
-    
-    let computerMove = '';
-
-    if (randomNumber >= 0 && randomNumber
-     < 1 / 3) {
-        computerMove ='Rock';
-    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3){
-        computerMove = 'Paper';
-    } else if (randomNumber >= 2 /3 && randomNumber < 1){
-        computerMove = 'Scissors';
-    }
+    const computerMove = pickComputerMove();
 
     let result = '';
 
@@ -69,18 +86,8 @@ const randomNumber = Math.random();
 }
 
 document.getElementById('Paper').onclick = function() {
-    const randomNumber = Math.random();
-        
-    let computerMove = '';
-
-    if (randomNumber >= 0 && randomNumber
-    < 1 / 3) {
-        computerMove ='Rock';
-    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3){
-        computerMove = 'Paper';
-    } else if (randomNumber >= 2 /3 && randomNumber < 1){
-        computerMove = 'Scissors';
-    }
+    
+    const computerMove = pickComputerMove();
 
     let result = '';
 
@@ -96,18 +103,8 @@ document.getElementById('Paper').onclick = function() {
 }
 
 document.getElementById('Scissors').onclick = function() {
-    const randomNumber = Math.random();
-        
-        let computerMove = '';
-
-        if (randomNumber >= 0 && randomNumber
-        < 1 / 3) {
-            computerMove ='Rock';
-        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3){
-            computerMove = 'Paper';
-        } else if (randomNumber >= 2 /3 && randomNumber < 1){
-            computerMove = 'Scissors';
-        }
+       
+        const computerMove = pickComputerMove();
 
         let result = '';
 
