@@ -64,15 +64,21 @@ const buttonRock = document.getElementById('Rock');
 const buttonPaper = document.getElementById('Paper')
 const buttonScissors = document.getElementById('Scissors')
 
+let gamesCounter = 0
+let playerWinCount = 0
+let computerWinCount = 0
 
 buttonRock.addEventListener('click', () => {
     playGame('Rock')
+    gamesCounter++
 })
 buttonPaper.addEventListener('click', () => {
     playGame('Paper')
+    gamesCounter++
 })
 buttonScissors.addEventListener('click', () => {
     playGame('Scissors')
+    gamesCounter++
 })
 
 function pickComputerMove(){
@@ -128,9 +134,25 @@ function playGame(playerMove){
             }
         }
         //Reusing the function to call inside a functions.
-
-
-
         alert(`You picked ${playerMove}. Computer picked ${computerMove}.${result}`);
+        checkGame(result)
+    }
 
+function checkGame(result) {
+    console.log(computerWinCount, playerWinCount)
+    if (result === 'You lose.'){
+        computerWinCount++
+        
+    } else if (result === 'You win.') {
+        playerWinCount++
+    }
+    if (computerWinCount === 5) {
+        alert('The Computer Won the game!')
+        playerWinCount = 0
+        computerWinCount = 0
+    } else if(playerWinCount === 5) {
+        alert('You won')
+        playerWinCount = 0
+        computerWinCount = 0
+    }
 }
